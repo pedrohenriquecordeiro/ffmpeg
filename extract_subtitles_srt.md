@@ -1,7 +1,7 @@
 ```for i in <name_file> ; do ffmpeg -i "$i" -c copy -map 0:s:0 "${i%.*}.srt"; done```
 
 
-```ffmpeg -i <name_file> -c copy -map 0:s:0 "${i%.*}.srt"```
+```ffmpeg -i <name_file> -c copy -map 0:s:0 "<name_file>.srt"```
 
 ## Explicação
 

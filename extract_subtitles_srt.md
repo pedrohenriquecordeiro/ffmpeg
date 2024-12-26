@@ -35,6 +35,7 @@ Agora, vamos destrinchar os argumentos usados no ffmpeg.
 	- Áudio em Português
 	- Legenda 1 (Inglês)
 	- Legenda 2 (Português)
+   
 Esse comando vai pegar a Legenda 1.
 
 ```${i%.*}.srt```

@@ -13,28 +13,28 @@ O programa principal utilizado no comando é o ffmpeg, que serve para manipular 
 Agora, vamos destrinchar os argumentos usados no ffmpeg.
 
 ```-i "$i"```
-	- Significa: Esse é o arquivo de entrada que o ffmpeg vai processar.
-	- $i: É o nome do arquivo atual do loop.
-	- Exemplo: Se o arquivo atual for video1.mp4, o comando vai ser:
+- Significa: Esse é o arquivo de entrada que o ffmpeg vai processar.
+- $i: É o nome do arquivo atual do loop.
+- Exemplo: Se o arquivo atual for video1.mp4, o comando vai ser:
 
 *ffmpeg -i "video1.mp4"*
 
 ```-c copy```
-	- Significa: Copia os dados sem reencodá-los.
-	- Isso é usado porque reencodar as legendas não é necessário — queremos apenas extraí-las como estão, para economizar tempo.
+- Significa: Copia os dados sem reencodá-los.
+- Isso é usado porque reencodar as legendas não é necessário — queremos apenas extraí-las como estão, para economizar tempo.
 
 ```-map 0:s:0```
-	- Significa: Escolhe especificamente a primeira faixa de legendas do arquivo de entrada.
-	- Vamos dividir isso em partes:
-	- 0: Refere-se ao primeiro arquivo de entrada. Como só temos 1 arquivo, ele é o arquivo atual.
-	- s: Refere-se a legendas (subtitles).
-	- 0: Refere-se à primeira faixa de legendas.
-	- Exemplo: Se o arquivo video1.mp4 tiver várias faixas, como:
-  	- Vídeo
-  	- Áudio em Inglês
-  	- Áudio em Português
-  	- Legenda 1 (Inglês)
-  	- Legenda 2 (Português)
+- Significa: Escolhe especificamente a primeira faixa de legendas do arquivo de entrada.
+- Vamos dividir isso em partes:
+- 0: Refere-se ao primeiro arquivo de entrada. Como só temos 1 arquivo, ele é o arquivo atual.
+- s: Refere-se a legendas (subtitles).
+- 0: Refere-se à primeira faixa de legendas.
+- Exemplo: Se o arquivo video1.mp4 tiver várias faixas, como:
+	- Vídeo
+	- Áudio em Inglês
+	- Áudio em Português
+	- Legenda 1 (Inglês)
+	- Legenda 2 (Português)
 Esse comando vai pegar a Legenda 1.
 
 ```${i%.*}.srt```

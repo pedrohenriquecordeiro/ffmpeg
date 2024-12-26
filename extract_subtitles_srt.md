@@ -5,8 +5,7 @@
 
 ## Explicação
 
-
-1. ffmpeg
+### ffmpeg
 
 O programa principal utilizado no comando é o ffmpeg, que serve para manipular e processar vídeos, áudios e legendas.
 	- O que está acontecendo aqui: Para cada arquivo no loop, ele executa o ffmpeg para extrair uma faixa de legendas.

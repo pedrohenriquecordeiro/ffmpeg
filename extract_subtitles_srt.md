@@ -1,29 +1,32 @@
-```for i in <name_file> ; do ffmpeg -i "$i" -c copy -map 0:s:0 "${i%.*}.srt"; done```
+```shell
 
+for i in <name_file> ; do ffmpeg -i "$i" -c copy -map 0:s:0 "${i%.*}.srt"; done
+ffmpeg -i <name_file> -c copy -map 0:s:0 "<name_file>.srt"
 
-```ffmpeg -i <name_file> -c copy -map 0:s:0 "<name_file>.srt"```
+```
 
 ## Explicação
 
 ### ffmpeg
 
 O programa principal utilizado no comando é o ffmpeg, que serve para manipular e processar vídeos, áudios e legendas.
-	- O que está acontecendo aqui: Para cada arquivo no loop, ele executa o ffmpeg para extrair uma faixa de legendas.
+
+O que está acontecendo aqui: Para cada arquivo no loop, ele executa o ffmpeg para extrair uma faixa de legendas.
 
 Agora, vamos destrinchar os argumentos usados no ffmpeg.
 
-```-i "$i"```
+1 - ```-i "$i"```
 - Significa: Esse é o arquivo de entrada que o ffmpeg vai processar.
 - $i: É o nome do arquivo atual do loop.
 - Exemplo: Se o arquivo atual for video1.mp4, o comando vai ser:
 
-*ffmpeg -i "video1.mp4"*
+2 - *ffmpeg -i "video1.mp4"*
 
 ```-c copy```
 - Significa: Copia os dados sem reencodá-los.
 - Isso é usado porque reencodar as legendas não é necessário — queremos apenas extraí-las como estão, para economizar tempo.
 
-```-map 0:s:0```
+3 - ```-map 0:s:0```
 - Significa: Escolhe especificamente a primeira faixa de legendas do arquivo de entrada.
 - Vamos dividir isso em partes:
 - 0: Refere-se ao primeiro arquivo de entrada. Como só temos 1 arquivo, ele é o arquivo atual.
@@ -38,7 +41,7 @@ Agora, vamos destrinchar os argumentos usados no ffmpeg.
    
 Esse comando vai pegar a Legenda 1.
 
-```${i%.*}.srt```
+4 - ```${i%.*}.srt```
 	- Significa: Define o nome do arquivo de saída.
 	- ${i%.*}: Remove a extensão do arquivo original.
 	- Exemplo: Se o arquivo for video1.mp4, o resultado será video1.

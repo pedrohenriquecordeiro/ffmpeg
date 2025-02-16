@@ -14,9 +14,7 @@ Procure no retorno do comando a lista de Streams.
 ```shell
 
 input_file="meu_video.mp4"
-output_file="${input_file%.*}.srt"
-
-ffmpeg -i "$file" -c copy -map 0:s:0 "$output"
+ffmpeg -i "$input_file" -c copy -map 0:s:0 "${input_file%.*}.srt"
 
 ```
 

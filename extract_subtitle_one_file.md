@@ -11,6 +11,10 @@ Procure no retorno do comando a lista de Streams.
 
 ## Extrair Legenda
 
+### Formato srt 
+```
+   Stream #0:2(eng): Subtitle: subrip (srt) (default)
+```
 ```shell
 
 input_file="meu_video.mp4"
@@ -18,27 +22,34 @@ ffmpeg -i "$input_file" -c copy -map 0:s:0 "${input_file%.*}.srt"
 
 ```
 
+### Formato ASS
+```
+  ffmpeg -i "Anora 2024 1080p WEB-DL HEVC x265 5.1 BONE.mkv" -map 0:2 -c:s copy english_subs.ass
+```
+
 Este comando utiliza o **FFmpeg** para extrair legendas de um arquivo de vídeo e salvá-las em um arquivo separado no formato .
 
-### 1) ffmpeg
+### Explicação
+#### Formato SRT
+##### 1) ffmpeg
 
 - Chama o programa FFmpeg, que é uma ferramenta de manipulação de mídia (áudio, vídeo e legendas).
 - O FFmpeg é capaz de converter, extrair, compactar e manipular arquivos multimídia.
 
-### 2) -i "$file"
+##### 2) -i "$file"
 
 - -i indica o arquivo de entrada.
 - "$file" é a variável que contém o nome do arquivo de vídeo.
 
 
-### 3) -c copy
+##### 3) -c copy
 
 - ```-c``` significa “codec”, que define como os dados serão processados.
 - ```copy``` diz ao **FFmpeg** para não reencodar a legenda, apenas copiá-la para o novo arquivo.
 - Isso evita perda de qualidade e torna o processo mais rápido.
 
 
-### 4) -map 0:s:0
+##### 4) -map 0:s:0
 
 - ```-map```: Seleciona quais faixas (streams) do arquivo serão extraídas.
 - ```0```: Refere-se ao primeiro arquivo de entrada (0 significa “arquivo original”).
@@ -46,7 +57,7 @@ Este comando utiliza o **FFmpeg** para extrair legendas de um arquivo de vídeo 
 - ```0```: Refere-se à primeira faixa de legendas encontrada.
 
   
-#### Exemplo prático
+### Exemplo prático
 
 Se o arquivo video.mp4 contiver:
 

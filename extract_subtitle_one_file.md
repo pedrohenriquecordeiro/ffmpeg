@@ -12,9 +12,7 @@ Procure no retorno do comando a lista de Streams.
 ## Extrair Legenda
 
 ### Formato srt 
-```
-   Stream #0:2(eng): Subtitle: subrip (srt) (default)
-```
+( Stream #0:2(eng): Subtitle: subrip (srt) (default) )
 ```shell
 
 input_file="meu_video.mp4"
@@ -23,6 +21,7 @@ ffmpeg -i "$input_file" -c copy -map 0:s:0 "${input_file%.*}.srt"
 ```
 
 ### Formato ASS
+(Stream #0:2(eng): Subtitle: ass (ssa))
 ```
   ffmpeg -i "Anora 2024 1080p WEB-DL HEVC x265 5.1 BONE.mkv" -map 0:2 -c:s copy english_subs.ass
 ```
